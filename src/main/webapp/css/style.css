@@ -1,0 +1,83 @@
+@charset "UTF-8";
+body{
+    text-align:center;
+    font-family: Helvetica;
+    background-image: linear-gradient(to bottom beige, white, green );
+    background-color: rgb(210, 210, 210);
+    margin-top: 60px;
+}
+
+#firstdiv{
+	
+	width: 480px;
+    padding: 20px;
+    margin: auto;
+    border-radius:10px;
+    text-align: left;
+    background-color: white;
+    font-size: 15px;
+}
+
+#firstdivall{
+	
+	width: 600px;
+	
+    padding: 20px;
+    margin: auto;
+    border-radius:10px;
+    background-color: white;
+    font-size: 15px;
+}
+
+
+#name{
+	
+    width: 320px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#email{
+	
+    width: 320px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#pass{
+	width: 320px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#message{
+	
+    width: 320px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#submit{
+	
+    width: 60px;
+    padding: 10px;
+    font-size: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 1%;
+    background-color: rgb(190, 190, 190)
+    
+   }
+   
+  .button:hover {
+  background-color: #4CAF50;
+  color: green;
+}
+
+#table{
+	width:"55%";
+	margin-left:auto; 
+    margin-right:auto;
+	text-align: center;
+}
+
