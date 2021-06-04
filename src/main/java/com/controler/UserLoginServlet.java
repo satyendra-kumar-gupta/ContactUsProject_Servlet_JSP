@@ -16,12 +16,17 @@ import jakarta.servlet.http.HttpServletResponse;
 public class UserLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserDao userDao = new UserDao();
-	
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("userlogin.jsp");
+		rd.forward(request, response);
+
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	
+
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		User user = new User();
