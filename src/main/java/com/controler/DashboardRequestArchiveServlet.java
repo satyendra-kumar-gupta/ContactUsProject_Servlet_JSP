@@ -14,30 +14,22 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class AllRequestServlet
- */
 @WebServlet("/archive")
-public class AllRequestServlet extends HttpServlet {
+public class DashboardRequestArchiveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
 		int id = Integer.parseInt(request.getParameter("button"));
 		System.out.println(id);
 
 		String url = "jdbc:postgresql://localhost:5432/mountblue";
 		String user = "postgres";
 		String pass = "12345678";
-        String helperQuery="select isactive from contactus where cid="+id;
+        String helperQuery="select isactive from requestus where id="+id;
        
-        String UPDATE_QUERY = "UPDATE contactus set isactive=? where cid="+id;
+        String UPDATE_QUERY = "UPDATE requestus set isactive=? where id="+id;
 
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -62,7 +54,7 @@ public class AllRequestServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		response.sendRedirect("allrequest.jsp");
+		response.sendRedirect("dashboardrequest.jsp");
 
 	}
 

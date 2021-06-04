@@ -9,13 +9,13 @@
 </head>
 <body>
 	<div id="firstdiv">
-		<h2 class="hp">Admin Login</h2>
-		<p class="hp">Please enter your email and password</p>
-		<form action="adminlogin" method="post">
+		<h2 class="hp">User Login</h2>
+		<p class="hp">Please enter your username and password</p>
+		<form action="userlogin" method="post">
 			<label for="username">Email *</label><br /> 
-			<input type="email" name="adminEmail" id="email" required><br /> <br /> 
-			<label for="password">password *</label><br /> 
-			<input type="password" name="adminPass" id="pass" required><br /> <br /> 
+			<input type="email" name="username" id="email" required><br /> <br /> 
+			<label for="password">Password *</label><br /> 
+			<input type="password" name="password" id="pass" required><br /> <br /> 
 			<input type="submit" name="submit" id="submit" class="button" value="SUBMIT">
 		</form>
 	</div>

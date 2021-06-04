@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,16 +11,17 @@
 <body>
 
 	<div id="firstdiv">
-		<a href="adminlogin.jsp" id="admin">Go to Admin Page</a>
+		<a href="userlogin" id="admin">Go to User Page</a>
+		
 		<h2 class="hp">Contact Us</h2>
 		<p class="hp">Please fill this form in a decent manner</p>
-		<form action="contactus" method="post">
+		<form action="requestus" method="post">
 			<label for="name">Name *</label><br /> 
-			<input type="text" name="cname" id="name" required><br /> <br /> 
+			<input type="text" name="name" id="name" required><br /> <br /> 
 			<label for="email">E-mail *</label><br /> 
-			<input type="email" name="cemail" id="email" required><br /> <br /> 
+			<input type="email" name="email" id="email" required><br /> <br /> 
 			<label for="message">Message *</label><br />
-			<textarea name="cmessage" id="message" rows="10" cols="40"></textarea><br /> <br/> 
+			<textarea name="message" id="message" rows="10" cols="40"></textarea><br /> <br/> 
 			<input type="submit" name="submit" id="submit" class="button" value="SUBMIT">
 		</form>
 	</div>

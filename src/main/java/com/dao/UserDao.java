@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.model.Admin;
+import com.model.User;
 
-public class AdminDao {
-	public boolean validate(Admin admin) throws ClassNotFoundException {
+public class UserDao {
+	public boolean validate(User admin) throws ClassNotFoundException {
 		boolean status = false;
 		String url = "jdbc:postgresql://localhost:5432/mountblue";
 		String user = "postgres";
@@ -19,10 +19,10 @@ public class AdminDao {
 		try {
 			Connection con = DriverManager.getConnection(url, user, pass);
 
-			String selectQuery = "select * from contactus_admin where adminemail = ? and adminpass = ? ";
+			String selectQuery = "select * from requestus_user where username = ? and password = ? ";
 			PreparedStatement ps = con.prepareStatement(selectQuery);
-			ps.setString(1, admin.getAdminEmail());
-			ps.setString(2, admin.getAdminPass());
+			ps.setString(1, admin.getUserName());
+			ps.setString(2, admin.getPassword());
 
 			System.out.println(ps);
 			ResultSet rs = ps.executeQuery();

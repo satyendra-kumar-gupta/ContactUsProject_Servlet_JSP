@@ -17,11 +17,11 @@
 		<table align="center" id="table" border="1">
 			<thead>
 				<tr>
-					<td>cid</td>
-					<td>cname</td>
-					<td>cemail</td>
-					<td>cmessage</td>
-					<td>time</td>
+					<td>id</td>
+					<td>name</td>
+					<td>email</td>
+					<td>message</td>
+					<td>datetime</td>
 					<td>isactive</td>
 				</tr>
 			</thead>
@@ -34,8 +34,8 @@
 					Class.forName("org.postgresql.Driver");
 					Connection con = DriverManager.getConnection(url, user, pass);
 					Statement st = con.createStatement();
-					String contactusData = "Select * from contactus";
-					ResultSet rs = st.executeQuery(contactusData);
+					String requestusData = "Select * from requestus";
+					ResultSet rs = st.executeQuery(requestusData);
 					while (rs.next()) {
 						String activeArchive="Active";
 						if(rs.getBoolean("isactive")==true){
@@ -43,15 +43,15 @@
 						}
 				%>
 				<tr>
-					<td><%=rs.getInt("cid")%></td>
-					<td><%=rs.getString("cname")%></td>
-					<td><%=rs.getString("cemail")%></td>
-					<td><%=rs.getString("cmessage")%></td>
-					<td><%=rs.getString("time")%></td>
+					<td><%=rs.getInt("id")%></td>
+					<td><%=rs.getString("name")%></td>
+					<td><%=rs.getString("email")%></td>
+					<td><%=rs.getString("message")%></td>
+					<td><%=rs.getString("datetime")%></td>
 					<td>
 					
 						<form action="archive" method="post">
-							<Button name="button" value="<%=rs.getInt("cid")%>"><%=activeArchive%></Button>
+							<Button name="button" value="<%=rs.getInt("id")%>"><%=activeArchive%></Button>
 						</form>
 					</td>
 				</tr>
