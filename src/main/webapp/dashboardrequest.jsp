@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
+
+<%@page import="com.model.RequestUs"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.dao.RequestUsDao"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="com.controler.DashboardRequestServlet"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,39 +30,41 @@
 			</thead>
 			<tbody>
 				<%
-				String url = "jdbc:postgresql://localhost:5432/mountblue";
-				String user = "postgres";
-				String pass = "12345678";
-				try {
-					Class.forName("org.postgresql.Driver");
-					Connection con = DriverManager.getConnection(url, user, pass);
-					Statement st = con.createStatement();
-					String requestusData = "Select * from requestus";
-					ResultSet rs = st.executeQuery(requestusData);
-					while (rs.next()) {
-						String activeArchive="Active";
-						if(rs.getBoolean("isactive")==true){
-							activeArchive="Archived";
-						}
+				ArrayList<RequestUs> requestUsList = (ArrayList<RequestUs>) request.getAttribute("listOfRequestUs");
 				%>
+
+				<%
+				for (RequestUs requestUs : requestUsList) {
+				%>
+
+				<%
+				String activeArchive = "Active";
+				%>
+				<%
+				if (requestUs.isActive() == true) {
+				%>
+				<%
+				activeArchive = "Archived";
+				%>
+				<%
+				}
+				%>
+
 				<tr>
-					<td><%=rs.getInt("id")%></td>
-					<td><%=rs.getString("name")%></td>
-					<td><%=rs.getString("email")%></td>
-					<td><%=rs.getString("message")%></td>
-					<td><%=rs.getString("datetime")%></td>
+					<td><%=requestUs.getId()%></td>
+					<td><%=requestUs.getName()%></td>
+					<td><%=requestUs.getEmail()%></td>
+					<td><%=requestUs.getMessage()%></td>
+					<td><%=requestUs.getDateTime()%></td>
 					<td>
-					
+
 						<form action="archive" method="post">
-							<Button name="button" value="<%=rs.getInt("id")%>"><%=activeArchive%></Button>
+							<Button name="button" value="<%=requestUs.getId()%>"><%=activeArchive%></Button>
 						</form>
 					</td>
 				</tr>
+
 				<%
-				}
-				con.close();
-				} catch (Exception e) {
-				e.printStackTrace();
 				}
 				%>
 			</tbody>

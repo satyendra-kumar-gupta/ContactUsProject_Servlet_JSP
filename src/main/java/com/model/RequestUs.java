@@ -3,12 +3,19 @@ package com.model;
 import java.sql.Timestamp;
 
 public class RequestUs {
+	private int id;
 	private String name;
 	private String email;
 	private String message;
 	private Timestamp dateTime;
 	private boolean isActive;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -39,4 +46,5 @@ public class RequestUs {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
+	
 }

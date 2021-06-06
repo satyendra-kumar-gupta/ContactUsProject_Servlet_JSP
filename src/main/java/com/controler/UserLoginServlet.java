@@ -21,7 +21,6 @@ public class UserLoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("userlogin.jsp");
 		rd.forward(request, response);
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -36,7 +35,11 @@ public class UserLoginServlet extends HttpServlet {
 		try {
 			if (userDao.validate(user)) {
 				System.out.println("login ........");
-				RequestDispatcher rd = request.getRequestDispatcher("dashboardrequest.jsp");
+//				RequestDispatcher rd = request.getRequestDispatcher("DashboardRequestServlet");
+//				rd.forward(request, response);
+				response.sendRedirect("DashboardRequestServlet");
+			} else {
+				RequestDispatcher rd = request.getRequestDispatcher("userlogin.jsp");
 				rd.forward(request, response);
 			}
 
